@@ -92,3 +92,44 @@ let atm = new ATMMachine("SBI",123456789,1000);
 console.log(atm);
 let atm2 = new ATMMachine("ICICI",987654321,2000);
 console.log(atm2);
+
+//inheritance
+class HDFCBank{
+    accountNumber: number;
+
+    constructor(accountNumber:number){
+        this.accountNumber = accountNumber;
+    }
+
+    createAccount() :void{
+        console.log("Account created");
+    }
+}
+
+class BranchOne extends HDFCBank{
+    constructor(accountNumber:number){
+        super(accountNumber);
+    }
+    
+
+}
+
+class BranchTwo extends HDFCBank{
+    interestRate:number;
+    constructor(accountNumber:number,interestRate:number){
+        super(accountNumber);
+        this.interestRate = interestRate;
+    }
+    
+    getCarLoan(){
+        console.log("We are providing car Loan");
+}
+
+}
+
+let newCustomer = new BranchOne(123456789);
+newCustomer.createAccount();
+
+let newCustomerFromBranchTwo = new BranchTwo(123456789,10.5);
+
+newCustomerFromBranchTwo.getCarLoan();
